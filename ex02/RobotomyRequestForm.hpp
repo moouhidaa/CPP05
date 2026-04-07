@@ -2,8 +2,7 @@
 #include <string>
 #include <iostream>
 #include  "Bureaucrat.hpp"
-#define  SIGNED 1
-#define   USIGNED 0
+#include "AForm.hpp"
 
 class  RobotomyRequestForm: public AForm
 {

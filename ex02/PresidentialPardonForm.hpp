@@ -1,4 +1,7 @@
 #pragma once
+
+class  Bureaucrat;
+
 #include <string>
 #include <iostream>
 #include  "Bureaucrat.hpp"

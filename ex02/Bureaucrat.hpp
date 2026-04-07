@@ -1,7 +1,8 @@
 #pragma once
 
-class  Form;
-#include  "Form.hpp"
+class  AForm;
+#include  "AForm.hpp"
+#include  "Bureaucrat.hpp"
 #include <string>
 #include <iostream>
 #include <exception>
@@ -22,11 +23,11 @@ class Bureaucrat
             virtual const char  *what()const  throw();
     };
 
-    std::string     Getname();
-    int             Getgrade();
+    std::string     Getname() const;
+    int             Getgrade() const;
     void            Increment();
     void            Decrement();
-    void            signForm(Form  &F);
+    void            signForm(AForm  &F);
 
     Bureaucrat();
     Bureaucrat(std::string n,int g);

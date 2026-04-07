@@ -35,6 +35,7 @@ class AForm
         int         Getgrade_sign()const;
         int         Getgrade_exe()const;
         void  beSigned(Bureaucrat &Bu);
+        virtual  void execute(Bureaucrat  const  &executor) const = 0;
 };
 
 std::ostream   &oprator(std::ostream &os, AForm const &ob);

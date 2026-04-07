@@ -10,8 +10,8 @@ const char *Bureaucrat::GradeTooLowException::what() const  throw()
     return "The Grade Unavailbe : Too Low";
 }
 
-int         Bureaucrat::Getgrade() {return grade;}
-std::string Bureaucrat::Getname() {return name;}
+int         Bureaucrat::Getgrade() const {return grade;}
+std::string Bureaucrat::Getname() const {return name;}
 
 Bureaucrat::Bureaucrat() : name("me"), grade(3){}
 Bureaucrat::Bureaucrat(std::string n,int  g): name(n) , grade(g){}
@@ -47,7 +47,7 @@ void  Bureaucrat::Decrement()
         throw Bureaucrat::GradeTooLowException();
 }
 
-void  Bureaucrat::signForm(Form  &F)
+void  Bureaucrat::signForm(AForm  &F)
 {
     try
     {

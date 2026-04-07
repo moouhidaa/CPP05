@@ -1,6 +1,6 @@
 #include  "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("target",true,14,130){}
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("target",true,145,137){}
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm & Pr) : AForm(Pr.Getname(),Pr.Getnsigned(),Pr.Getgrade_sign(),Pr.Getgrade_exe()) {}
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &Pr)
 {
@@ -11,12 +11,13 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm co
 
 void  ShrubberyCreationForm::execute(Bureaucrat  const &executor) const
 {
-     if(executor.Getgrade() != 137 || Getnsigned() == false)
+     if(executor.Getgrade() != Getgrade_exe() || Getnsigned() == false)
         throw  GradeTooHighException();
-    if(Getnsigned()  ==  true && executor.Getgrade() == 137)
+    if(Getnsigned() == true && executor.Getgrade() == Getgrade_exe())
     {
-        std::ofstream  file( target +" _shrebbery");\
-        for (int x = 0; x < 3 ; x++)
+        std::string s =  target + "_shrebbery";
+        std::ofstream  file(s.c_str());
+        for (int x = 0; x < 1 ; x++)
         {
             file << "           *         ";
             file << "          ***        ";

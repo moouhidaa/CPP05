@@ -3,8 +3,7 @@
 #include <iostream>
 #include  <fstream>
 #include  "Bureaucrat.hpp"
-#define  SIGNED 1
-#define   USIGNED 0
+#include  "AForm.hpp"
 
 class  ShrubberyCreationForm: public AForm
 {
@@ -16,6 +15,6 @@ class  ShrubberyCreationForm: public AForm
         ShrubberyCreationForm(std::string target);
         ShrubberyCreationForm(ShrubberyCreationForm & Pr);
         ShrubberyCreationForm &operator=(ShrubberyCreationForm const &Pr);
-        void execute(Bureaucrat const &executor) const ;
+        void execute(Bureaucrat const &executor) const;
         ~ShrubberyCreationForm();
 };
