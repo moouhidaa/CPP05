@@ -16,9 +16,6 @@ bool         AForm::Getnsigned() const{return nsigned;}
 int    AForm::Getgrade_sign()const{return grade_sign;}
 int    AForm::Getgrade_exe()const{return grade_exec;}
 
-
-
-
 void AForm::beSigned(Bureaucrat &Bu)
 {
     if(1 <= Bu.Getgrade() && Bu.Getgrade() <= grade_sign)
@@ -41,7 +38,6 @@ AForm::~AForm()
 {
     std::cout << "Just Get Destyoed\n";
 }
-
 
 std::ostream   &oprator(std::ostream &os, AForm const &ob)
 {
