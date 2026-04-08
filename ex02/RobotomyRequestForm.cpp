@@ -28,7 +28,6 @@ void  RobotomyRequestForm::execute(Bureaucrat  const &executor) const
         std::cout  << target  << "has been robotomized successfully 50% of the time \n";
     else
         std::cout  <<  "Robotomy Failed\n";
-
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string  target) : AForm(target, true,72 ,45) , target(target)

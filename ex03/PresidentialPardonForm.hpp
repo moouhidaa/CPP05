@@ -1,8 +1,11 @@
 #pragma once
+
+class  Bureaucrat;
+
 #include <string>
 #include <iostream>
 #include  "Bureaucrat.hpp"
-
+#include  "AForm.hpp"
 
 class  PresidentialPardonForm: public AForm
 {

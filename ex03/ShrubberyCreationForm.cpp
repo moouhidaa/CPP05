@@ -1,6 +1,6 @@
 #include  "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("target",true,14,130){}
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("target",true,145,137){}
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm & Pr) : AForm(Pr.Getname(),Pr.Getnsigned(),Pr.Getgrade_sign(),Pr.Getgrade_exe()) {}
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &Pr)
 {
@@ -11,31 +11,33 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm co
 
 void  ShrubberyCreationForm::execute(Bureaucrat  const &executor) const
 {
-     if(executor.Getgrade() != 137 || Getnsigned() == false)
+    std::cout << "||" <<  executor.Getgrade() << "||" <<  Getgrade_exe() << "||";
+     if(executor.Getgrade() != Getgrade_exe() || Getnsigned() == false)
         throw  GradeTooHighException();
-    if(Getnsigned()  ==  true && executor.Getgrade() == 137)
+    if(Getnsigned() == true && executor.Getgrade() == Getgrade_exe())
     {
-        std::ofstream  file( target +" _shrebbery");\
+        std::string s =  target + "_shrebbery";
+        std::ofstream  file(s.c_str());
         for (int x = 0; x < 3 ; x++)
         {
-            file << "           *         ";
-            file << "          ***        ";
-            file << "         *****       ";
-            file << "        *******      ";
-            file << "       *********     ";
-            file << "      ***********    ";
-            file << "     *************   ";
-            file << "    ***************  ";
-            file << "   ***************** ";
-            file << "           |         ";
-            file << "           |         ";
+            file << "           *         \n";
+            file << "          ***        \n";
+            file << "         *****       \n";
+            file << "        *******      \n";
+            file << "       *********     \n";
+            file << "      ***********    \n";
+            file << "     *************   \n";
+            file << "    ***************  \n";
+            file << "   ***************** \n";
+            file << "           |         \n";
+            file << "           |         \n";
             file  << "\n";
         }
         file.close();
     }
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string  target) : AForm(target,true,145,137), target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string  target) : AForm("someone",true,145,137), target(target)
 {
 
 }
@@ -47,5 +49,5 @@ std::string  ShrubberyCreationForm::Get_target() const
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-    std::cout  <<  "Just Destroyed heryn";
+    std::cout  <<  "Just Destroyed her\n";
 }

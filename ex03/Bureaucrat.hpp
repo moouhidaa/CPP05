@@ -1,34 +1,33 @@
 #pragma once
 
+class  AForm;
+#include  "AForm.hpp"
+#include  "Bureaucrat.hpp"
 #include <string>
 #include <iostream>
 #include <exception>
-#include  "Form.hpp"
-#include  "AForm.hpp"
 
 class Bureaucrat
 {
     private:
-    const std::string name;
-    int               grade;
+    const std::string   name;
+    int                 grade;
     public:
     class GradeTooHighException : public  std::exception{ // nested class --
         public:
-            const char *what() const noexcept;
+           virtual const char *what() const  throw();
     };
 
     class GradeTooLowException : public  std::exception{
         public:
-            const char  *what() const noexcept;
+            virtual const char  *what()const  throw();
     };
 
-    std::string Getname() const;
-    int         Getgrade() const;
-    void  Increment();
-    void  Decrement();
-    void  signForm(Form &essence);
-
-    void  executeForm(AForm const & form) const;
+    std::string     Getname() const;
+    int             Getgrade() const;
+    void            Increment();
+    void            Decrement();
+    void            signForm(AForm  &F);
 
     Bureaucrat();
     Bureaucrat(std::string n,int g);
@@ -38,4 +37,4 @@ class Bureaucrat
 
 };
 
-std::ostream  &operator<<(std::ostream  os, Bureaucrat &ob);
+std::ostream  &operator<<(std::ostream  &os, Bureaucrat &ob);

@@ -1,25 +1,25 @@
 #include  "Bureaucrat.hpp"
 
-const char *Bureaucrat::GradeTooHighException::what()  const noexcept
+const char *Bureaucrat::GradeTooHighException::what() const  throw()
 {
     return "The Grade Unavailbe : Too High";
 }
 
-const char *Bureaucrat::GradeTooLowException::what()  const noexcept
+const char *Bureaucrat::GradeTooLowException::what() const  throw()
 {
     return "The Grade Unavailbe : Too Low";
 }
 
-int         Bureaucrat::Getgrade()const {return grade;}
-std::string Bureaucrat::Getname()const {return name;}
+int         Bureaucrat::Getgrade() const {return grade;}
+std::string Bureaucrat::Getname() const {return name;}
 
-Bureaucrat::Bureaucrat() : name("me"), grade(90){}
+Bureaucrat::Bureaucrat() : name("me"), grade(137){}
 Bureaucrat::Bureaucrat(std::string n,int  g): name(n) , grade(g){}
 
 Bureaucrat  &Bureaucrat::operator=(const Bureaucrat &other)
 {
     if(this  !=  &other)
-        grade =  other.grade;
+        this->grade =  other.grade;
     return  *this;
 }
 
@@ -27,7 +27,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &another) : name(another.name) , grade(a
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << "Just Unknown Destryed\n";
+    std::cout << "Just Unknown Destroyed\n";
 }
 void  Bureaucrat::Increment()
 {
@@ -47,30 +47,21 @@ void  Bureaucrat::Decrement()
         throw Bureaucrat::GradeTooLowException();
 }
 
-std::ostream  &operator<<(std::ostream  os, Bureaucrat &ob){
-
-    os << ob.Getname() << " , bureacrat grade " << ob.Getgrade() << ".\n";
-    return os;
-}
-
-void  Bureaucrat::signForm(Form  &essence)
-{
-    essence.beSigned(*this);
-    if(essence.Getnsigned() == true)
-        std::cout << "Bureaucrat Singed Form\n";
-    else
-        std::cout << "<bureaucrat> couldn’t sign <form> because <reason>";
-}
-
-void Bureaucrat::executeForm(AForm const & form) const
+void  Bureaucrat::signForm(AForm  &F)
 {
     try
     {
-        form.execute(*this);
-        std::cout << "the Bureaucrat Executed Form\n";
+        F.beSigned(*this);
+        std::cout << "the " << Getname() << " signed form\n";
     }
-    catch(...)
+    catch(std::exception &e)
     {
-        std::cout  <<  "The Form Not  executeeeeed";
+        std::cout  << Getname() << " couldn't sign " << F.Getname() << " cause " << e.what() << "\n";
     }
+}
+
+std::ostream  &operator<<(std::ostream  &os, Bureaucrat &ob){
+
+    os << ob.Getname() << " , bureacrat grade " << ob.Getgrade() << ".\n";
+    return os;
 }

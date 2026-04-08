@@ -17,19 +17,19 @@ void  ShrubberyCreationForm::execute(Bureaucrat  const &executor) const
     {
         std::string s =  target + "_shrebbery";
         std::ofstream  file(s.c_str());
-        for (int x = 0; x < 1 ; x++)
+        for (int x = 0; x < 3 ; x++)
         {
-            file << "           *         ";
-            file << "          ***        ";
-            file << "         *****       ";
-            file << "        *******      ";
-            file << "       *********     ";
-            file << "      ***********    ";
-            file << "     *************   ";
-            file << "    ***************  ";
-            file << "   ***************** ";
-            file << "           |         ";
-            file << "           |         ";
+            file << "           *         \n";
+            file << "          ***        \n";
+            file << "         *****       \n";
+            file << "        *******      \n";
+            file << "       *********     \n";
+            file << "      ***********    \n";
+            file << "     *************   \n";
+            file << "    ***************  \n";
+            file << "   ***************** \n";
+            file << "           |         \n";
+            file << "           |         \n";
             file  << "\n";
         }
         file.close();
