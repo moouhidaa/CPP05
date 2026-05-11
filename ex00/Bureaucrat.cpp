@@ -27,7 +27,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &another) : name(another.name) , grade(a
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << "Just Unknown Destroyed\n";
+    std::cout << "The Bureacrat Destractor Called\n";
 }
 void  Bureaucrat::Increment()
 {
@@ -40,7 +40,7 @@ void  Bureaucrat::Increment()
 
 void  Bureaucrat::Decrement()
 {
-        grade++;
+    grade++;
     if(grade < 1)
         throw Bureaucrat::GradeTooHighException();
     if(grade > 150)

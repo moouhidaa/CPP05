@@ -21,7 +21,7 @@ int    Form::Getgrade_exe()const{return grade_exec;}
 
 void Form::beSigned(Bureaucrat &Bu)
 {
-    if(1 <= Bu.Getgrade() && Bu.Getgrade() <= grade_sign)
+    if(1 >= Bu.Getgrade() && Bu.Getgrade() <= grade_sign)
         nsigned = true;
     else
         throw GradeTooLowException();
@@ -39,7 +39,7 @@ const char *Form::GradeTooLowException::what() const throw()
 
 Form::~Form()
 {
-    std::cout << "Just Get Destyoed\n";
+    std::cout << "The Form Destractor Called\n";
 }
 
 

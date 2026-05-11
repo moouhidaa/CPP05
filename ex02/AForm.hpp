@@ -32,10 +32,11 @@ class AForm
 
         std::string  Getname()const;
         bool         Getnsigned()const;
-        int         Getgrade_sign()const;
-        int         Getgrade_exe()const;
-        void  beSigned(Bureaucrat &Bu);
-        virtual  void execute(Bureaucrat  const  &executor) const = 0;
+        int          Getgrade_sign()const;
+        int          Getgrade_exe()const;
+        void         beSigned(Bureaucrat &Bu);
+        void         check_execute(Bureaucrat const &B) const;
+        virtual void execute(Bureaucrat  const  &executor) const = 0;
 };
 
 std::ostream   &oprator(std::ostream &os, AForm const &ob);

@@ -36,11 +36,19 @@ const char *AForm::GradeTooLowException::what() const throw()
 
 AForm::~AForm()
 {
-    std::cout << "Just Get Destyoed\n";
+    std::cout << "The President Destructor Called\n";
 }
 
 std::ostream   &oprator(std::ostream &os, AForm const &ob)
 {
     os << ob.Getname() << " " << ob.Getgrade_sign()  << " " << ob.Getgrade_exe() << " " << ob.Getgrade_sign() << "\n";
     return os;
+}
+
+void  AForm::check_execute(Bureaucrat const &B)const
+{
+    if((nsigned == true) && (B.Getgrade() >= 1 && B.Getgrade() <= grade_exec))
+        std::cout  << "The Form is able to excute\n";
+    else
+        throw GradeTooLowException();
 }

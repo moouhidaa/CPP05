@@ -13,7 +13,7 @@ class Bureaucrat
     const std::string   name;
     int                 grade;
     public:
-    class GradeTooHighException : public  std::exception{ // nested class --
+    class GradeTooHighException : public  std::exception{ 
         public:
            virtual const char *what() const  throw();
     };
@@ -28,6 +28,7 @@ class Bureaucrat
     void            Increment();
     void            Decrement();
     void            signForm(AForm  &F);
+    void            executeForm(AForm const & form);
 
     Bureaucrat();
     Bureaucrat(std::string n,int g);

@@ -28,14 +28,15 @@ class AForm
         AForm(std::string n, bool ns, int grades, int gradex);
         AForm(AForm& other);
         AForm &operator=(AForm& another);
-        ~AForm();
+        virtual ~AForm();
 
         std::string  Getname()const;
         bool         Getnsigned()const;
-        int         Getgrade_sign()const;
-        int         Getgrade_exe()const;
-        void  beSigned(Bureaucrat &Bu);
-        virtual  void execute(Bureaucrat  const  &executor) const = 0;
+        int          Getgrade_sign()const;
+        int          Getgrade_exe()const;
+        void         beSigned(Bureaucrat &Bu);
+        void         check_execute(Bureaucrat const &B) const;
+        virtual void execute(Bureaucrat  const  &executor) const = 0;
 };
 
 std::ostream   &oprator(std::ostream &os, AForm const &ob);

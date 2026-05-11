@@ -3,14 +3,13 @@
 
 int main()
 {
-
     try{
-           Bureaucrat    a("9rd",1);
+           Bureaucrat    a("9rd",50);
            a.Increment();
+           std::cout  << a;
     }
     catch(std::exception &e)
     {
-        std::cout << "something just throwed\n";
         std::cout << e.what() << std::endl;
     }
 }

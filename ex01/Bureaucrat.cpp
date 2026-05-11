@@ -27,7 +27,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &another) : name(another.name) , grade(a
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << "Just Unknown Destroyed\n";
+    std::cout << "The Bureaucrat Destractor Called\n";
 }
 void  Bureaucrat::Increment()
 {

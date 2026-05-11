@@ -1,4 +1,5 @@
 #include  "RobotomyRequestForm.hpp"
+#include  <cstdlib>
 RobotomyRequestForm::RobotomyRequestForm() : AForm("target",true,72,45)
 {
 
@@ -16,18 +17,17 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &P
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-    std::cout  <<  "Just Destroyed her\n";
+    std::cout  <<  "The RobotomyReauestFrom Destractor Called\n";
 }
 
 void  RobotomyRequestForm::execute(Bureaucrat  const &executor) const
 {
-    if(executor.Getgrade() != Getgrade_exe() || Getnsigned() == false)
-        throw  GradeTooLowException();
-    std::cout  << "bang, crash, buzz";
-    if(Getnsigned()  ==  true  && executor.Getgrade() == Getgrade_exe())
+    check_execute(executor);
+    std::cout  << "bang, crash, buzz\n";
+    if(rand() % 2)
         std::cout  << target  << "has been robotomized successfully 50% of the time \n";
     else
-        std::cout  <<  "Robotomy Failed\n";
+        std::cout  <<  target << "robotmy failed\n";
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string  target) : AForm(target, true,72 ,45) , target(target)

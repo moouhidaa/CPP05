@@ -11,11 +11,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm co
 
 void  ShrubberyCreationForm::execute(Bureaucrat  const &executor) const
 {
-    std::cout << "||" <<  executor.Getgrade() << "||" <<  Getgrade_exe() << "||";
-     if(executor.Getgrade() != Getgrade_exe() || Getnsigned() == false)
-        throw  GradeTooHighException();
-    if(Getnsigned() == true && executor.Getgrade() == Getgrade_exe())
-    {
+    check_execute(executor);
         std::string s =  target + "_shrebbery";
         std::ofstream  file(s.c_str());
         for (int x = 0; x < 3 ; x++)
@@ -34,10 +30,9 @@ void  ShrubberyCreationForm::execute(Bureaucrat  const &executor) const
             file  << "\n";
         }
         file.close();
-    }
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string  target) : AForm("someone",true,145,137), target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string  target) : AForm(target,true,145,137), target(target)
 {
 
 }
@@ -49,5 +44,5 @@ std::string  ShrubberyCreationForm::Get_target() const
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-    std::cout  <<  "Just Destroyed her\n";
+    std::cout  <<  "The Bureaucrat Destractor Called";
 }

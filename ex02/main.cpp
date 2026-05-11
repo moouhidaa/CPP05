@@ -1,12 +1,14 @@
-#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int  main()
 {
     try
     {
-    Bureaucrat  BU("who",137);
-    ShrubberyCreationForm   Sh;
-    Sh.execute(BU);
+    Bureaucrat  BU("Mouaad",2);
+    RobotomyRequestForm  Sh;
+    BU.executeForm(Sh);
+
+
     }
 
     catch(std::exception &e)

@@ -1,25 +1,35 @@
 #include  "Intern.hpp"
 
-AForm  *Intern::makeForm(std::string  name, std::string target)
+AForm* president(std::string  target)
 {
-    char x =  name[0];
-    AForm  *form  =  0;
-    switch (x)
-    {
-        case 'P' :
-               form  = new PresidentialPardonForm(target);
-               break;
-        case 'R' :
-               form = new  RobotomyRequestForm(target);
-               break;
-        case 'S' :
-               form = new ShrubberyCreationForm(target);
-               break;
-        default :
-            std::cout <<  "THe Form Does Not Exist\n";
+    return new  PresidentialPardonForm(target);
+}
 
+AForm* robot(std::string target)
+{
+    return new RobotomyRequestForm(target);
+}
+
+AForm* shrubbery(std::string target)
+{
+    return  new  ShrubberyCreationForm(target);
+}
+
+
+AForm *Intern::makeForm(std::string  name,std::string  target)
+{
+    std::string  names[3] = {"PresidentialPardonForm",
+                                "RobotomyRequestForm",
+                                "ShrubberyCreactionForm"};
+    
+    AForm *(*forms[3])(std::string target) = {&president, &robot, &shrubbery};
+    for(int i = 0;i < 3 ;i++)
+    {
+        if(names[i] == name)
+        {
+            std::cout <<  "Intern create " << name << std::endl;
+            return forms[i](target);
+        } 
     }
-    if(form != 0)
-        std::cout <<  "Intern Creates " << name <<  std::endl;
-    return form;
+    return  NULL;
 }

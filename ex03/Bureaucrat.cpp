@@ -13,7 +13,7 @@ const char *Bureaucrat::GradeTooLowException::what() const  throw()
 int         Bureaucrat::Getgrade() const {return grade;}
 std::string Bureaucrat::Getname() const {return name;}
 
-Bureaucrat::Bureaucrat() : name("me"), grade(137){}
+Bureaucrat::Bureaucrat() : name("me"), grade(3){}
 Bureaucrat::Bureaucrat(std::string n,int  g): name(n) , grade(g){}
 
 Bureaucrat  &Bureaucrat::operator=(const Bureaucrat &other)
@@ -27,7 +27,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &another) : name(another.name) , grade(a
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << "Just Unknown Destroyed\n";
+    std::cout << "The Bureaucrat Destractor Called\n";
 }
 void  Bureaucrat::Increment()
 {
@@ -57,6 +57,19 @@ void  Bureaucrat::signForm(AForm  &F)
     catch(std::exception &e)
     {
         std::cout  << Getname() << " couldn't sign " << F.Getname() << " cause " << e.what() << "\n";
+    }
+}
+
+void   Bureaucrat::executeForm(AForm const  &form)
+{
+    try 
+    {
+        form.execute(*this);
+        std::cout <<  name <<  " executed " << form.Getname() <<  std::endl;
+    }
+    catch(...)
+    {
+        std::cout << "Failed to execute The Form\n"; 
     }
 }
 

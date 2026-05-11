@@ -11,19 +11,17 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {
-    std::cout  <<  "Just Destroyed her\n";
+    std::cout  <<  "The PresidentialPardonForm Destractor Called\n";
 }
 
 void  PresidentialPardonForm::execute(Bureaucrat  const &executor) const
 {
-     if(executor.Getgrade() != 5 || Getnsigned() == false)
-        throw  GradeTooLowException();
-    if(Getnsigned()  == true && executor.Getgrade() == Getgrade_exe())
-        std::cout << "Informs that "<< target << " has been pardoned by Zaphod Beeblebrox";
+    check_execute(executor);
+    std::cout << "Informs that "<< target << " has been pardoned by Zaphod Beeblebrox";
 }
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("target",true,25,5), target(target)
 {
-
+    
 }
 std::string  PresidentialPardonForm::Get_target() const{return target;}
