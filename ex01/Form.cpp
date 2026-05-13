@@ -43,7 +43,7 @@ Form::~Form()
 }
 
 
-std::ostream   &oprator(std::ostream &os, Form const &ob)
+std::ostream   &operator<<(std::ostream &os, Form const &ob)
 {
     os << ob.Getname() << " " << ob.Getgrade_sign()  << " " << ob.Getgrade_exe() << " " << ob.Getgrade_sign() << "\n";
     return os;
